@@ -18,7 +18,8 @@ const { chains, publicClient } = configureChains(
 const connectors = celoGroups({
   chains,
   projectId,
-  appName: (typeof document === "object" && document.title) || "Your App Name",
+  appName:
+    (typeof document === "object" && document.title) || "Crowdy-Fundy-Pay",
 });
 
 const appInfo = {
