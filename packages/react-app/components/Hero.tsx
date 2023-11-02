@@ -1,6 +1,10 @@
 import React from "react";
+import { useState } from "react";
+import AddProject from "./AddProject";
 
 export default function Hero() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="text-center bg-white text-gray-800 py-24 px-6">
       <h1
@@ -8,13 +12,14 @@ export default function Hero() {
   tracking-tight mb-12"
       >
         <span className="capitalize">
-          Support Inspiring projects powered by Mini-Pay and SocialConnect
+          Support Inspiring projects powered by Mini-Pay and SocialConnect on
         </span>
         <br />
         <span className="uppercase text-blue-600">Crowdy</span>
       </h1>
       <div className="flex justify-center items-center space-x-2">
         <button
+          onClick={() => setShowModal(true)}
           type="button"
           className="inline-block px-6 py-2.5 bg-blue-600
     text-white font-medium text-xs leading-tight uppercase
@@ -22,6 +27,7 @@ export default function Hero() {
         >
           Add Project
         </button>
+        {showModal && <AddProject setIsOpen={setShowModal} />}
 
         <button
           type="button"
