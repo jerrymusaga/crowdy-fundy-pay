@@ -3,7 +3,7 @@ import { FaTimes } from "react-icons/fa";
 
 import Image from "next/image";
 
-export default function AddProject({ setIsOpen }) {
+export default function AddProject({ setIsOpen }: any) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [cost, setCost] = useState("");

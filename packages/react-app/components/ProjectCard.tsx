@@ -3,7 +3,7 @@ import Image from "next/image";
 import Identicons from "react-identicons";
 import { useRouter } from "next/router";
 
-export default function ProjectCard({ card, id }) {
+export default function ProjectCard({ card, id }: any) {
   const router = useRouter();
 
   return (

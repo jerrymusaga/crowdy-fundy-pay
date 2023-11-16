@@ -46,11 +46,11 @@ export default function ProjectSupporters() {
             {/* {supporters.map((supporter, i) => (
               <Supporter key={i} supporter={supporter} />
             ))} */}
-            {Array(4)
-              .fill()
+            {/* {Array(4)
+              .fill(4, 3)
               .map((sup, i) => (
                 <Supporter key={i} />
-              ))}
+              ))} */}
           </tbody>
         </table>
       </div>

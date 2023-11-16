@@ -3,10 +3,10 @@ import { FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Image from "next/image";
 
-export default function SupportProject({ project }) {
+export default function SupportProject({ project }: any) {
   const [amount, setAmount] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!amount) return;
   };
