@@ -1,6 +1,7 @@
 import Identicons from "react-identicons";
 import { FaEthereum } from "react-icons/fa";
 import Image from "next/image";
+import ProjectSupporters from "@/components/ProjectSupporters";
 
 const ProjectDetails = () => {
   return (
@@ -122,6 +123,7 @@ const ProjectDetails = () => {
               </div>
             </div>
           </div>
+          <ProjectSupporters />
         </div>
       </div>
     </div>
