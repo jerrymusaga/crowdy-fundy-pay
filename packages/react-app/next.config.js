@@ -9,7 +9,13 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["ipfs.io", "localhost", "media.wired.com", "img.freepik.com"],
+    domains: [
+      "ipfs.io",
+      "localhost",
+      "media.wired.com",
+      "img.freepik.com",
+      "i.guim.co.uk",
+    ],
   },
 };
 

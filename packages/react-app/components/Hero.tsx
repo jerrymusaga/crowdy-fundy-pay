@@ -36,7 +36,7 @@ export default function Hero() {
     rounded-full shadow-md bg-transparent hover:bg-blue-700
     hover:text-white"
         >
-          Back Projects
+          Support Projects
         </button>
       </div>
 
@@ -63,7 +63,7 @@ export default function Hero() {
           >
             3
           </span>
-          <span>Backings</span>
+          <span>Supports</span>
         </div>
         <div
           className="flex flex-col justify-center items-center

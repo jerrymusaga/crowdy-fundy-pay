@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   const [userAddress, setUserAddress] = useState("");
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div className="min-h-screen relative">
       <Hero />
+      <Projects />
     </div>
   );
 }
