@@ -3,6 +3,12 @@ import { FaTimes } from "react-icons/fa";
 
 import Image from "next/image";
 
+import { useContractWrite, usePrepareContractWrite } from "wagmi";
+import CrowdyABI from "../../hardhat/artifacts/contracts/Crowdy.sol/Crowdy.json";
+
+import Web3 from "web3";
+import { ContractKit } from "@celo/contractkit";
+
 export default function AddProject({ setIsOpen }: any) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -28,6 +34,22 @@ export default function AddProject({ setIsOpen }: any) {
     };
   };
 
+  const params = {
+    title,
+    description,
+    cost,
+    expiresAt: toTimestamp(date),
+    imageURL,
+  };
+
+  const { config } = usePrepareContractWrite({
+    address: "0x77eE1C6f69B8F7A701745fe5a46108e3B7Ac22eB",
+    abi: CrowdyABI.abi,
+    functionName: "createProject",
+    args: [title, description, imageURL, cost, toTimestamp(date)],
+  });
+  const { write } = useContractWrite(config);
+
   const onClose = () => {
     setIsOpen(false);
     reset();
@@ -51,7 +73,13 @@ export default function AddProject({ setIsOpen }: any) {
         className="bg-white shadow-xl shadow-black
         rounded-xl w-11/12 md:w-2/5 h-7/12 p-6"
       >
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            write?.();
+          }}
+          className="flex flex-col"
+        >
           <div className="flex justify-between items-center">
             <p className="font-semibold">Add Project</p>
             <button
@@ -107,7 +135,7 @@ export default function AddProject({ setIsOpen }: any) {
               step={0.01}
               min={0.01}
               name="cost"
-              placeholder="cost (Celo)"
+              placeholder="Cost (Celo)"
               onChange={(e) => setCost(e.target.value)}
               value={cost}
               required
@@ -169,6 +197,7 @@ export default function AddProject({ setIsOpen }: any) {
             className="inline-block px-6 py-2.5 bg-blue-600
             text-white font-medium text-md leading-tight
             rounded-full shadow-md hover:bg-blue-700 mt-5"
+            disabled={!write}
           >
             Submit Project
           </button>
